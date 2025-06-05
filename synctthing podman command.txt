@@ -1,0 +1,15 @@
+podman run -d \
+  --name=syncthing \
+  --hostname=syncthing \
+  -e PUID=0 \
+  -e PGID=0 \
+  -e TZ=Etc/UTC \
+  -p 8384:8384 \
+  -p 22000:22000/tcp \
+  -p 22000:22000/udp \
+  -p 21027:21027/udp \
+  -v /home/alessandro/.config/syncthing:/config \
+  -v /hd_ext:/data1 \
+  -v /hd_sync:/data2 \
+  --restart unless-stopped \
+  linuxserver/syncthing:latest

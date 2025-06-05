@@ -1,0 +1,16 @@
+podman run -d \
+  --name=amule2 \
+  -p 4711:4711 \
+  -p 4712:4712 \
+  -p 4662:4662 \
+  -p 4665:4665/udp \
+  -p 4672:4672/udp \
+  -e PUID=0 \
+  -e PGID=0 \
+  -e TZ=Europe/London \
+  -e WEBUI_PWD=pino  \
+  -v /home/alessandro/.aMule:/home/amule/.aMule \
+  -v /hd_ext/mule/0\ catalogo/:/incoming \
+  -v /hd_ext/muleTmp/:/temp \
+  --restart unless-stopped \
+  ngosang/amule

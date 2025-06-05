@@ -1,0 +1,11 @@
+podman run -d \
+  --name=radarr \
+  -e PUID=0 \
+  -e PGID=0 \
+  -e TZ=Etc/UTC \
+  -p 7878:7878 \
+  -v /hd_ext/radarr/data:/config \
+  -v /hd_ext/radarr/movies:/movies `#optional` \
+  -v /hd_ext/radarr/downloads:/downloads `#optional` \
+  --restart unless-stopped \
+  lscr.io/linuxserver/radarr:latest

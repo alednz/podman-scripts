@@ -1,0 +1,15 @@
+podman run -d \
+  --name=nzbget \
+  -e PUID=0 \
+  -e PGID=0 \
+  -e TZ=Etc/UTC \
+  -p 6789:6789 \
+  -e NZBGET_USER=alessandro \
+  -e NZBGET_PASS=pino \
+  -v /hd_ext/nzbget/data:/config \
+  --restart unless-stopped \
+  lscr.io/linuxserver/nzbget:latest
+
+
+
+-v /path/to/downloads:/downloads `#optional` \
