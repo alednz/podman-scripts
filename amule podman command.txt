@@ -5,8 +5,8 @@ podman run -d \
   -p 4662:4662 \
   -p 4665:4665/udp \
   -p 4672:4672/udp \
-  -e PUID=0 \
-  -e PGID=0 \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -e TZ=Europe/London \
   -e WEBUI_PWD=pino  \
   -v /home/alessandro/.aMule:/home/amule/.aMule \
