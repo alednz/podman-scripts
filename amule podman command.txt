@@ -1,5 +1,6 @@
 podman run -d \
   --name=amule2 \
+--userns=keep-id \
   -p 4711:4711 \
   -p 4712:4712 \
   -p 4662:4662 \
