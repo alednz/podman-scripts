@@ -1,17 +1,26 @@
 podman run -d \
   --name=amule \
---userns=keep-id \
   -p 4711:4711 \
   -p 4712:4712 \
   -p 4662:4662 \
   -p 4665:4665/udp \
   -p 4672:4672/udp \
-  -e PUID=1000 \
+-e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Europe/London \
+  -e TZ=Europe/Rome \
   -e WEBUI_PWD=pino  \
-  -v /home/alessandro/.aMule:/home/amule/.aMule \
-  -v /hd_ext/mule/0\ catalogo/:/incoming \
-  -v /hd_ext/muleTmp/:/temp \
+--uidmap=0:1:1000 \
+--uidmap=1000:0:1 \
+  -v /hd_ext/mule/0\ catalogo:/home/amule/.aMule:suid \
+  -v /hd_ext/amule/incoming/:/incoming:suid \
+  -v /hd_ext/amule/temp/:/temp:suid \
   --restart unless-stopped \
   ngosang/amule
+
+--uidmap=0:1:1000 \
+--uidmap=1000:0:1 \
+  
+--userns=keep-id \
+--uidmap=0:1000:1 \
+--userns=keep-id \
+--userns_mode: keep-id \
