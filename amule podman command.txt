@@ -11,8 +11,8 @@ podman run -d \
   -e WEBUI_PWD=pino  \
 --uidmap=0:1:1000 \
 --uidmap=1000:0:1 \
-  -v /hd_ext/mule/0\ catalogo:/home/amule/.aMule:suid \
-  -v /hd_ext/amule/incoming/:/incoming:suid \
+  -v /hd_ext/mule/0\ catalogo:/incoming:suid \
+  -v /hd_ext/amule/config/:/home/amule/.aMule:suid \
   -v /hd_ext/amule/temp/:/temp:suid \
   --restart unless-stopped \
   ngosang/amule
